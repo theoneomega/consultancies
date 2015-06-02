@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_schedule_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Schedule
+  <% end %>
+  <h1>Listing schedules</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Meeting</th>
+            <th>Teacher</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @schedules) do |schedule| %>
+            <td><%= schedule.meeting %></td>
+            <td><%= schedule.teacher.fullname %></td>
+            <td><%= link_to 'Show', schedule %></td>
+        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

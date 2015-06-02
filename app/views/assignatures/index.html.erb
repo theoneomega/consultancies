@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_assignature_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Assignature
+  <% end %>
+  <h1>Listing assignatures</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @assignatures) do |assignature| %>
+            <td><%= assignature.name %></td>
+            <td><%= link_to 'Show', assignature %></td>
+        <td><%= link_to 'Edit', edit_assignature_path(assignature) %></td>
+        <td><%= link_to 'Destroy', assignature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
